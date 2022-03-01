@@ -1,0 +1,8 @@
+form.text-center.border.border-light.p-5 {
+    width: 44%;
+}
+@media (max-width: 720px) {
+    form.text-center.border.border-light.p-5{
+        width:auto;
+    }
+}
