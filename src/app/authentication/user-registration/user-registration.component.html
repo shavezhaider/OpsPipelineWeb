@@ -1,0 +1,86 @@
+<notifier-container></notifier-container>
+
+<div class="container my-4">
+<!-- Default form login -->
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+<div class="text-center border border-light p-5">
+
+  <p class="h4 mb-4"> Sign up </p>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+  <!-- Email -->  
+  <input type="text"  formControlName="firstName"
+  class="form-control mb-4" placeholder="First Name"  
+  [ngClass]="{'is-invalid': f['firstName'].touched && f['firstName'].invalid }">
+  <div class="alert alert-danger" *ngIf="f['firstName'].touched && !f['firstName'].valid">
+    <div *ngIf="f['firstName'].errors?.['required']">Name is required</div>
+  </div>
+  
+  <input type="text" formControlName="lastName" 
+  class="form-control mb-4" placeholder="Last Name" 
+  [ngClass]="{'is-invalid': f['lastName'].touched && f['lastName'].invalid }">
+  <div class="alert alert-danger" *ngIf="f['lastName'].touched && !f['lastName'].valid">
+    <div *ngIf="f['lastName'].errors?.['required']">last Name is required</div>
+  </div>
+  <input type="text" formControlName="userName" 
+  class="form-control mb-4" placeholder="User Name" type="text"
+  [ngClass]="{'is-invalid': f['userName'].touched && f['userName'].invalid }">
+
+  <div class="alert alert-danger" *ngIf="f['userName'].touched && !f['userName'].valid">
+    <div *ngIf="f['userName'].errors?.['required']">user Name is required</div>
+    <div *ngIf="f['userName'].errors?.['minlength']">user Name must be at least 6 characters long.</div>
+    <div *ngIf="f['userName'].errors?.['maxLength']">user Name can be max 10 characters long.</div>
+  </div>
+
+  <input type="password" formControlName="password" 
+   class="form-control mb-4" placeholder="Password"
+   [ngClass]="{'is-invalid': f['password'].touched && f['password'].invalid }">
+   <div class="alert alert-danger" *ngIf="f['password'].touched && !f['password'].valid">
+    <div *ngIf="f['password'].errors?.['required']">password Name is required</div>
+    <div *ngIf="f['password'].errors?.['minLength']">Password must be at least 6 characters</div>
+    <div *ngIf="f['password'].errors?.['hasNumber']"> Must contain at least 1 number!</div>
+    <div *ngIf="f['password'].errors?.['hasCapitalCase']">Must contain at least 1 in Capital Case</div>
+    <div *ngIf="f['password'].errors?.['hasSmallCase']">Must contain at least 1 Letter in Small Case!</div>
+  </div>
+  
+  <!-- <label
+  [ngClass]="f['password'].hasError('required') || f['password'].hasError('minlength')  ? 'text-danger' : 'text-success'">
+  <i class="material-icons">
+    {{ f['password'].hasError('required') ||
+    f['password'].hasError('minlength') ? 'cancel' :
+    'check_circle' }}
+  </i>
+  Must be at least 6 characters!
+</label> -->
+
+  <!-- Password -->
+  <input type="password" formControlName="confirmPassword"  class="form-control mb-4"
+   placeholder="Confirm Password"
+   [ngClass]="{'is-invalid': f['confirmPassword'].touched && f['confirmPassword'].invalid }">
+   <div class="alert alert-danger" *ngIf="f['confirmPassword'].touched && !f['confirmPassword'].valid">
+    <div *ngIf="f['confirmPassword'].errors?.['required']">confirm Password Name is required</div>
+    <div *ngIf="f['confirmPassword'].errors?.['matching']">confirm Passwords must match</div>
+  </div>
+   <input  type="text" formControlName="email"  class="form-control mb-4" placeholder="email"
+   [ngClass]="{'is-invalid': f['email'].touched && f['email'].invalid }">
+ 
+   <div class="alert alert-danger" *ngIf="f['email'].touched && !f['email'].valid">
+    <div *ngIf="f['email'].errors?.['required']">email Name is required</div>
+    <div *ngIf="f['email'].errors?.['matching']">email is Invalid</div>
+  </div>
+  <!-- Sign in button -->
+  <button mdbBtn color="info"  class="my-4" type="submit" [class.disabled]="!form.valid" >Create Account
+    <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
+  </button>  
+    </div>
+  </form>
+</div>
+<!-- Default form login -->
+</div>
+</div>
+<div class="col-md-3">
+
+</div>
+</div>
