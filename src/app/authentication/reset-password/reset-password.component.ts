@@ -62,12 +62,12 @@ export class ResetPasswordComponent implements OnInit {
   this.authService.resetPassword(this.resetForm.value).subscribe(data => {
    debugger
     console.log(data);
-    if(data.processingStatus.statusCode=== StatusCode[StatusCode.Success]){  
+    if(data.statusCode=== StatusCode[StatusCode.Success]){  
           
       this.router.navigate(['adminlogin']);
     }
     else {
-      this.notifier.notify('info', data.processingStatus.message);
+      this.notifier.notify('info', data.message);
     }
     this.loading=false;
   },

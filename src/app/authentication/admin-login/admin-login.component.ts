@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {Router} from '@angular/router';
-import {FormGroup,FormControl,Validators, FormBuilder, AbstractControl} from '@angular/forms'
-import {AuthenticationService} from '../services/authentication.service'
+import {FormGroup,Validators, FormBuilder, AbstractControl} from '@angular/forms'
+import {AuthService} from '../services/auth.service'
 
 import {NotifierService } from 'angular-notifier'
 import { Validation } from 'src/app/utils/validation.model';
@@ -9,12 +9,12 @@ import { Validation } from 'src/app/utils/validation.model';
   selector: 'app-admin-login',
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.css']})
-export class AdminLoginComponent implements OnInit {
+export class AdminLoginComponent {
   UserAuthReq:any;
   public loading: boolean;
   loginForm: FormGroup;
   
-  constructor(private router : Router,private authService:AuthenticationService,
+  constructor(private router : Router,private authService:AuthService,
     private notifier:NotifierService,private formBuilder: FormBuilder
     ) {
       this.UserAuthReq = { UserName: '', Password: '' }
@@ -50,25 +50,20 @@ export class AdminLoginComponent implements OnInit {
      });
     }
      
-  ngOnInit(): void {
-    
-  }
+  
   get f(): { [key: string]: AbstractControl } {
     return this.loginForm.controls;
   }
  onSubmit()
-{
-  
+ {  
   if (this.loginForm.invalid) {
     return;
   }
+   
   this.loading=true;
-  this.authService.userlogin(this.loginForm.value).subscribe(data => {
-    debugger
-    if(data.IsAuthSuccessful){  
-      //Token
-      this.notifier.notify('success', data.errorMessage);
-      localStorage.setItem("token",data.Token);
+  this.authService.login(this.loginForm.value).subscribe(data => {
+    
+    if(data.isAuthSuccessful){  
       this.router.navigate(['admin/dashboard']);
     }
     else {
