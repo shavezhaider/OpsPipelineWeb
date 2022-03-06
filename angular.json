@@ -34,14 +34,27 @@
               "node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss",
               "node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
               "node_modules/animate.css/animate.css",                 
+             
+                            
               
               "node_modules/angular-notifier/styles.scss",
               "src/stylesAdmin.scss",         
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/material-dashboard.min.css",
+              "src/assets/css/nucleo-svg.css",
+              "src/assets/css/nucleo-icons.css"
+             
             ],
             "scripts": [
-              "node_modules/chart.js/dist/Chart.js",
-              "node_modules/hammerjs/hammer.min.js"
+              
+              "node_modules/hammerjs/hammer.min.js",
+              "src/assets/js/core/popper.min.js",
+              "src/assets/js/core/bootstrap.min.js",
+              "src/assets/js/plugins/perfect-scrollbar.min.js",
+              "src/assets/js/plugins/smooth-scrollbar.min.js"
+              
+
+              
             ]
           },
           "configurations": {

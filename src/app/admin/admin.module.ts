@@ -6,12 +6,15 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminHeaderComponent } from './Shared/admin-header/admin-header.component';
 import { AdminFooterComponent } from './Shared/admin-footer/admin-footer.component';
-import { AdminDashboardLayoutComponent } from './Shared/admin-dashboard-layout/admin-dashboard-layout.component';
-import {UserAuthRequest} from './Shared/interface/request/user-authentication-request'
+
+
+import { ReportFiltersComponent } from './report-filters/report-filters.component';
+import { DealReportListComponent } from './deal-report-list/deal-report-list.component';
+import { TopMenuComponent } from './Shared/top-menu/top-menu.component'
 
 @NgModule({
   declarations: [    
-     DashboardComponent, AdminHeaderComponent, AdminFooterComponent, AdminDashboardLayoutComponent
+     DashboardComponent, AdminHeaderComponent, AdminFooterComponent,  ReportFiltersComponent, DealReportListComponent, TopMenuComponent
   
   ],
   imports: [
@@ -19,6 +22,6 @@ import {UserAuthRequest} from './Shared/interface/request/user-authentication-re
     AdminRoutingModule,
     MDBBootstrapModule.forRoot()
   ],
-  exports:[AdminDashboardLayoutComponent,AdminHeaderComponent]
+  exports:[AdminHeaderComponent]
 })
 export class AdminModule { }

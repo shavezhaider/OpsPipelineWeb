@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http'
 import {Observable, throwError} from 'rxjs'
-import { retry, catchError } from 'rxjs/operators';
+import {catchError } from 'rxjs/operators';
 
 import { apiUrl } from 'src/app/admin/Shared/api-urls';
 import { environment } from 'src/environments/environment';

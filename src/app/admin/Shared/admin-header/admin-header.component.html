@@ -1,94 +1,95 @@
 
 <!--Main Navigation-->
 <header>
-
-  <!-- Sidebar -->
-  <div class="sidebar-fixed position-fixed">
-
-      <a class="logo-wrapper waves-effect">
-          <img src="../../../../assets/img/angular-mdb.png" class="img-fluid" alt="">
-      </a>
-
-      <div class="list-group list-group-flush">
-
-          <a routerLink="dashboard/" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
-              <mdb-icon fas icon="chart-pie" class="mr-3"></mdb-icon>Dashboard
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+        <div class="sidenav-header">
+          <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+          <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
+            <img src="../assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
+            <span class="ms-1 font-weight-bold text-white">Material Dashboard 2</span>
           </a>
-          <a routerLink="profiles/profile1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
-              <mdb-icon fas icon="user" class="mr-3"></mdb-icon>Profile</a>
-          <a routerLink="tables/table1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
-              <mdb-icon fas icon="table" class="mr-3"></mdb-icon>Tables</a>
-          <a routerLink="maps/map1" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
-              <mdb-icon far icon="map" class="mr-3"></mdb-icon>Maps</a>
-          <a routerLink="nonExistingPath" routerLinkActive="active" class="list-group-item list-group-item-action waves-effect">
-              <mdb-icon fas icon="exclamation" class="mr-3"></mdb-icon>404</a>
-
-      </div>
-
-  </div>
-  <!-- Sidebar -->
-
-  <!--Navbar-->
-  <mdb-navbar [containerInside]="false" SideClass="navbar navbar-expand-lg navbar-light white">
-
-      <!-- Navbar brand -->
-      <logo class="ml-3">
-          <a class="navbar-brand" href="https://mdbootstrap.com/angular/angular-bootstrap-getting-started/">
-              <strong class="blue-text">MDB</strong>
-          </a>
-      </logo>
-
-      <!-- Collapsible content -->
-      <links>
-
-          <!-- Links -->
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                  <a class="nav-link" mdbWavesEffect>Home
-                      <span class="sr-only">(current)</span>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="https://mdbootstrap.com/angular/angular-bootstrap-getting-started/" target="_blank" mdbWavesEffect>About MDB</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="https://mdbootstrap.com/angular/getting-started/" target="_blank" mdbWavesEffect>Free download</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="https://mdbootstrap.com/angular/angular-tutorial/" target="_blank" mdbWavesEffect>Free tutorials</a>
-              </li>
+        </div>
+        <hr class="horizontal light mt-0 mb-2">
+        <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-white active bg-gradient-primary" href="../pages/dashboard.html">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">dashboard</i>
+                </div>
+                <span class="nav-link-text ms-1">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white " href="../pages/tables.html">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">table_view</i>
+                </div>
+                <span class="nav-link-text ms-1">Sales Stages</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white " href="../pages/billing.html">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">receipt_long</i>
+                </div>
+                <span class="nav-link-text ms-1">Deals</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white " href="../pages/virtual-reality.html">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">view_in_ar</i>
+                </div>
+                <span class="nav-link-text ms-1">Deal Location</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white " href="../pages/rtl.html">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+                </div>
+                <span class="nav-link-text ms-1">Sales Pipeline</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white " href="../pages/notifications.html">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">notifications</i>
+                </div>
+                <span class="nav-link-text ms-1">Deals Date</span>
+              </a>
+            </li>
+            <li class="nav-item mt-3">
+              <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white " href="../pages/profile.html">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">person</i>
+                </div>
+                <span class="nav-link-text ms-1">Profile</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white " href="../pages/sign-in.html">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">login</i>
+                </div>
+                <span class="nav-link-text ms-1">Sign In</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white " href="../pages/sign-up.html">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">assignment</i>
+                </div>
+                <span class="nav-link-text ms-1">Sign Up</span>
+              </a>
+            </li>
           </ul>
-          <!-- Links -->
-
-          <!-- Search form -->
-          <ul class="navbar-nav nav-flex-icons">
-
-                  <li class="nav-item">
-                      <a href="https://www.facebook.com/mdbootstrap" class="nav-link" target="_blank" mdbWavesEffect>
-                          <mdb-icon fab icon="facebook-f"></mdb-icon>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="https://twitter.com/MDBootstrap" class="nav-link" target="_blank" mdbWavesEffect>
-                          <mdb-icon fab icon="twitter"></mdb-icon>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light"
-                          target="_blank" mdbWavesEffect>
-                          <mdb-icon fab icon="github" class="mr-2"></mdb-icon>MDB GitHub
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="https://mdbootstrap.com/products/angular-ui-kit/" class="ml-1 nav-link border border-light rounded" mdbWavesEffect>
-                          <mdb-icon far icon="gem" class=" left"></mdb-icon> Go Pro</a>
-                  </li>
-              </ul>
-      </links>
-      <!-- Collapsible content -->
-
-  </mdb-navbar>
-  <!--/.Navbar-->
+        </div>
+        
+    </aside>
 
 </header>
-<!--Main Navigation-->

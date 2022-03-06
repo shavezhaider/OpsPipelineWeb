@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router'
+import {Router,ActivatedRoute, NavigationEnd} from '@angular/router'
 
 
 @Component({
@@ -9,17 +9,19 @@ import {Router} from '@angular/router'
 })
 export class AppComponent {
   title = 'OpsPipeline';
-  constructor(private route: Router) {
+  constructor(private route: Router,private actRouter : ActivatedRoute) {
     debugger
-    console.warn(this.route.url)
-    if(this.route.url == "/"){
+    
+    var currentUrl=window.location.pathname; 
+    if(currentUrl == "/"){
     this.route.navigate(['adminlogin']);
-  }
+    }
    console.log(decodeURIComponent(this.route.url));
   }
   setHeader() {
     let path = this.route.url.split('/')[1];
-    this.title = decodeURIComponent(path);
+    this.title = decodeURIComponent(path);  
+   
   }
 
 }
