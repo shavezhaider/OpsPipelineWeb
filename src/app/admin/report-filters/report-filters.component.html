@@ -1,1 +1,43 @@
-<div ></div>
+
+
+<!-- Default form login -->
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="row">  
+  <div class="col-md-3">
+    <select class="form-control" formControlName="entirePipeline" >
+    <option value="" disabled>Choose a Entire Pipeline</option>
+    <option *ngFor="let c of entirePipelines" [ngValue]="c.id">{{ c.name }}</option>
+  </select>
+  </div>
+  <div class="col-md-3">
+    <select class="form-control" formControlName="dealLocation" >
+    <option value="" disabled>Deal Location</option>
+    <option *ngFor="let c of dealLocations" [ngValue]="c.id">{{ c.name }}</option>
+  </select>
+    </div>
+    <div class="col-md-3">
+      <input type="text" formControlName="dealClosureDate" 
+      class="form-control mb-4"  type="date">
+    </div>
+      <div class="col-md-3">
+       <select class="form-control" formControlName="SalesStage" >
+       <option value="" disabled>Sales Stages</option>
+       <option *ngFor="let c of SalesStages" [ngValue]="c.id">{{ c.name }}</option>
+     </select>
+        </div>
+</div> 
+<div class="row">
+  <div class="col-md-3">
+    <select class="form-control" formControlName="topDeal" >
+    <option value="" disabled>Top Deals</option>
+    <option *ngFor="let c of topDeals" [ngValue]="c.id">{{ c.name }}</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Filter</button>
+ </div>
+</div>
+</form>
+  
+  
+  
