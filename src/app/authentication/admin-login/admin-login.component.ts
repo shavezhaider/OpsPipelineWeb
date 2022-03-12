@@ -59,10 +59,11 @@ export class AdminLoginComponent {
   if (this.loginForm.invalid) {
     return;
   }
+  debugger
    
   this.loading=true;
   this.authService.login(this.loginForm.value).subscribe(data => {
-    
+    debugger
     if(data.isAuthSuccessful){  
       this.router.navigate(['admin/dashboard']);
     }
@@ -72,7 +73,7 @@ export class AdminLoginComponent {
     this.loading=false;
   },
   error=>{
-    
+    this.notifier.notify('error', error.Message);
     this.loading=false;
   })
 }  

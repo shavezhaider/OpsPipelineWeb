@@ -12,6 +12,7 @@ import {AdminModule} from '../admin/admin.module';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component'
+import { ExceptionService } from '../shared/exception.service';
 
 @NgModule({
   declarations: [AdminLoginComponent, ForgotpasswordComponent, UserRegistrationComponent, ResetPasswordComponent],
@@ -26,7 +27,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     MDBBootstrapModule.forRoot()
   ],
   exports:[AdminLoginComponent,UserRegistrationComponent,ForgotpasswordComponent],
-  providers:[AuthenticationService]
+  providers:[AuthenticationService,ExceptionService]
   
   
  
