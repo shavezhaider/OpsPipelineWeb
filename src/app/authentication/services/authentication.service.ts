@@ -7,6 +7,7 @@ import { apiUrl } from 'src/app/admin/Shared/api-urls';
 import { environment } from 'src/environments/environment';
 import { UserAuthRequest } from 'src/app/admin/Shared/interface/request/user-authentication-request';
 import {NotifierService } from 'angular-notifier'
+import { ExceptionService } from 'src/app/shared/exception.service';
 
 // @Injectable({
 //   providedIn: 'root'
@@ -18,6 +19,7 @@ import {NotifierService } from 'angular-notifier'
 export class AuthenticationService {
   private APIBaseUrl:string
   constructor(private http:HttpClient, private notifier:NotifierService,
+    private exceptionService : ExceptionService
     ) {
     
    this.APIBaseUrl=environment.API_BASE_URL;
@@ -30,26 +32,31 @@ export class AuthenticationService {
     })
   }  
   userlogin(UserAuthRequest:UserAuthRequest):Observable<any> 
-  {
+  {  
+  return this.http.post(this.APIBaseUrl+apiUrl.API_AdminLogin_URL, UserAuthRequest,
+    {
+      headers: this.getHeaders()       
+    }
     
-  //  return this.http.post(this.APIBaseUrl+apiUrl.API_AdminLogin_URL, UserAuthRequest)
-  //  .pipe(retry(1),
-  //  catchError(catchError(this.handleError)
-  //  ));
-
-   //return this.http.post(this.APIBaseUrl+apiUrl.API_AdminLogin_URL, UserAuthRequest);
-    return this.http.post(this.APIBaseUrl+apiUrl.API_AdminLogin_URL, UserAuthRequest)
+    )
    .pipe(
-   catchError(error=> this.handleError(error))
+    catchError(error=> this.exceptionService.handleError(error))
    );
    
   }
+
+  getHeaders(){
+    let headerOption = new HttpHeaders ();
+    headerOption.append('Content-Type', 'application/json');
+    headerOption.append('X-Requested-With', 'XMLHttpRequest');
+    return headerOption;
+    }
   userRegistration(user:any):Observable<any>
   {
     user.Role="SuperAdmin"
     return this.http.post(this.APIBaseUrl+apiUrl.API_User_Registration_URL,{"appUserEntity":user})
     .pipe(
-    catchError(error=> this.handleError(error))
+      catchError(error=> this.exceptionService.handleError(error))
     );
   }
 
@@ -57,31 +64,18 @@ export class AuthenticationService {
   {    debugger
     return this.http.post(this.APIBaseUrl+apiUrl.API_User_Forgot_Password_URL,user)
     .pipe(
-    catchError(error=> this.handleError(error))
+      catchError(error=> this.exceptionService.handleError(error))
     );
   }
   resetPassword(user:any):Observable<any>
   { debugger
     return this.http.post(this.APIBaseUrl+apiUrl.API_User_Reset_Password_URL,user)
     .pipe(
-    catchError(error=> this.handleError(error))
+      catchError(error=> this.exceptionService.handleError(error))
     );
   }
 
 
   
-  // Error handling 
-  handleError(error:any) {
-    debugger
-    let errorMessage = '';
-    if(error.error instanceof ErrorEvent) {
-      // Get client-side error
-      errorMessage = error.error.message;
-    } else {
-      // Get server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    this.notifier.notify("error",errorMessage);   
-    return throwError(errorMessage);
- }
+  
 }
