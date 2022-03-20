@@ -12,10 +12,14 @@ import { ReportFiltersComponent } from './report-filters/report-filters.componen
 import { DealReportListComponent } from './deal-report-list/deal-report-list.component';
 import { TopMenuComponent } from './Shared/top-menu/top-menu.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../authentication/services/auth.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../shared/auth-interceptor';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [    
-     DashboardComponent, AdminHeaderComponent, AdminFooterComponent,  ReportFiltersComponent, DealReportListComponent, TopMenuComponent
+     DashboardComponent, AdminHeaderComponent, AdminFooterComponent,  ReportFiltersComponent, DealReportListComponent, TopMenuComponent, ProfileComponent
   
   ],
   imports: [
@@ -23,8 +27,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule, 
     AdminRoutingModule,
+    
     MDBBootstrapModule.forRoot()
   ],
-  exports:[AdminHeaderComponent]
+  exports:[AdminHeaderComponent],
+  providers:[AuthService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }
+  
+  ]
 })
 export class AdminModule { }

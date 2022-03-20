@@ -27,6 +27,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
     AdminModule,
     AuthenticationModule,
     
+    
     HttpClientModule,
     MDBBootstrapModule.forRoot()
   ],

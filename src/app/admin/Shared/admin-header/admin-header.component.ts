@@ -1,4 +1,6 @@
 import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/authentication/services/auth.service';
 
 @Component({
   selector: 'app-admin-header',
@@ -6,15 +8,19 @@ import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
   styleUrls: ['./admin-header.component.css']
 })
 export class AdminHeaderComponent implements OnInit {
-  //@ViewChild('sidenav', {static: true}) sidenav: ElementRef;
- // clicked: boolean;
 
-  constructor() {
-    //this.clicked = this.clicked === undefined ? false : true;
+
+  constructor(private authService: AuthService,private route: Router) {
+
   }
 
 
   ngOnInit(): void {
+
+    if(!this.authService.isLoggedIn){
+      this.route.navigate(['adminlogin']);
+     }
+    
   }
 
 }
