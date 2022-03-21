@@ -5,3 +5,12 @@ export enum StatusCode {
     Error = 4,
     DuplicateRecord = 5
 }
+
+export enum enumOptionType
+{
+    entirePipeline = 1,
+    dealLocation = 2,
+    SalesStage = 3,
+    topDeal = 4
+}
+

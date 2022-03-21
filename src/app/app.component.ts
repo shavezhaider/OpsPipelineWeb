@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Router,ActivatedRoute, NavigationEnd} from '@angular/router'
-
+import {AuthService} from  './authentication/services/auth.service'
 
 @Component({
   selector: 'app-root',
@@ -9,13 +9,19 @@ import {Router,ActivatedRoute, NavigationEnd} from '@angular/router'
 })
 export class AppComponent {
   title = 'OpsPipeline';
-  constructor(private route: Router,private actRouter : ActivatedRoute) {
+  constructor(private route: Router,private actRouter : ActivatedRoute , private authService: AuthService) {
     debugger
     
     var currentUrl=window.location.pathname; 
-    if(currentUrl == "/"){
-    this.route.navigate(['adminlogin']);
+    if(currentUrl == "/" || !authService.isLoggedIn){
+      this.route.navigate(['adminlogin']);
+     }
+    if(authService.isLoggedIn && currentUrl == "/")
+    {
+      this.route.navigate(['admin/dashboard']);
+      
     }
+   
    console.log(decodeURIComponent(this.route.url));
   }
   setHeader() {
